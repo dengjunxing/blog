@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios';
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/"；
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
 export default function MessageBoard(){
 
