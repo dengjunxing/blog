@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from 'axios';
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
 export default function MessageBoard(){
 
     const [ post,setPost ] = useState({
@@ -26,7 +24,7 @@ export default function MessageBoard(){
     })
 
     useEffect(() => {
-        fetch(proxyurl + 'https://boiling-retreat-28017.herokuapp.com/posts')
+        fetch('https://cors-anywhere.herokuapp.com/https://boiling-retreat-28017.herokuapp.com/posts')
         .then((res) => {
             if(res.ok) {
                 return res.json();
@@ -53,7 +51,7 @@ export default function MessageBoard(){
             email:post.email,
             message:post.message,
         };
-        axios.post(proxyurl+"https://boiling-retreat-28017.herokuapp.com/newpost",newPost);
+        axios.post("https://cors-anywhere.herokuapp.com/https://boiling-retreat-28017.herokuapp.com/newpost",newPost);
         alert("Post added!");
         setPost({
             email:"",
@@ -72,7 +70,7 @@ export default function MessageBoard(){
     }
 
     function updatePost(id){
-        axios.put(proxyurl+"https://boiling-retreat-28017.herokuapp.com/put/" + id, newUpdatePost)
+        axios.put("https://cors-anywhere.herokuapp.com/https://boiling-retreat-28017.herokuapp.com/put/" + id, newUpdatePost)
         .then(alert("Post updated!"))
         .catch((err) => alert("Update failed!" + "\n" + err));
         setPost({
@@ -94,7 +92,7 @@ export default function MessageBoard(){
 
     function deletePost(id){
 
-        axios.delete(proxyurl+"https://boiling-retreat-28017.herokuapp.com/delete/" + id);
+        axios.delete("https://cors-anywhere.herokuapp.com/https://boiling-retreat-28017.herokuapp.com/delete/" + id);
         alert("Post deleted!");
         console.log(`Post with id ${id} deleted`);
     }
